@@ -1,3 +1,4 @@
+import { IntefaceModel } from './../interface/interface.model';
 import { Categoria } from './categoria.model';
 export class Produto implements IntefaceModel<Produto>{
 

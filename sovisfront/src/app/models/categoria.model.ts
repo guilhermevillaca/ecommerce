@@ -1,3 +1,4 @@
+import { IntefaceModel } from './../interface/interface.model';
 export class Categoria implements IntefaceModel<Categoria>{
     ctgCodigo: number;
     ctgDescricao: String;
