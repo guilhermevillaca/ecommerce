@@ -11,6 +11,7 @@ public class CarrinhoItens implements Serializable {
     private Integer crrItnCodigo;
     private Carrinho carrinho;
     private Produto produto;
+    private Integer crrItnQuantidade;
 
     public Integer getCrrItnCodigo() {
         return crrItnCodigo;
@@ -34,6 +35,14 @@ public class CarrinhoItens implements Serializable {
 
     public void setProduto(Produto produto) {
         this.produto = produto;
+    }
+
+    public Integer getCrrItnQuantidade() {
+        return crrItnQuantidade;
+    }
+
+    public void setCrrItnQuantidade(Integer crrItnQuantidade) {
+        this.crrItnQuantidade = crrItnQuantidade;
     }
 
 }
