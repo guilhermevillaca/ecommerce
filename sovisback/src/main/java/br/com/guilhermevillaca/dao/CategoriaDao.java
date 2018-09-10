@@ -58,7 +58,24 @@ public class CategoriaDao implements InterfaceDao<Categoria> {
 
     @Override
     public void getById(Integer id) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        Connection con = ConnectionFactory.getConnection();
+        PreparedStatement stmt = null;
+        try {
+            stmt = con.prepareStatement("SELECT * FROM categoria WHERE Ctg_Codigo=?");
+            stmt.setInt(0, id);
+            ResultSet rs = stmt.executeQuery();
+            while(rs.next()){
+                Categoria c = new Categoria();
+                c.setCtgCodigo(rs.getInt("Ctg_Codigo"));
+                c.setCtgDescricao(rs.getString("Ctg_Descricao"));    
+                jsonResult.from(c);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(ProdutoDao.class.getName()).log(Level.SEVERE, null, ex);
+            //result json com erro
+        } finally {
+            ConnectionFactory.closeConnection(con, stmt);
+        }
     }
 
     @Override

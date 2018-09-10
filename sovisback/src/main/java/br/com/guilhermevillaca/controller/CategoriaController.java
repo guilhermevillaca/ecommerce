@@ -48,7 +48,7 @@ public class CategoriaController extends AbstractController implements Interface
     @Path("pesquisa/{id}")
     @Override
     public void pesquisa(Integer id) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        this.dao.getById(id);
     }
 
 }
