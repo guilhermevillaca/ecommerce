@@ -3,12 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package br.com.guilhermevillaca.core;
+package br.com.guilhermevillaca.modelo;
 
 /**
  *
- * @author guilherme
+ * @author guilherme.villaca
  */
-public class AbrstractDao {
+public class Venda {
     
 }

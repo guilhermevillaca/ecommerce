@@ -16,6 +16,12 @@
     
     <dependencies>      
         
+        <!-- mysql -->
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>8.0.12</version>
+        </dependency>
         <!--Vraptor-->
         <dependency>
             <groupId>br.com.caelum</groupId>
