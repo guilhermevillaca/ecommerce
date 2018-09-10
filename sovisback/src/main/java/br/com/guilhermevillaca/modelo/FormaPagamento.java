@@ -1,14 +1,30 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package br.com.guilhermevillaca.modelo;
+
+import java.io.Serializable;
 
 /**
  *
  * @author guilherme.villaca
  */
-public class FormaPagamento {
-    
+public class FormaPagamento implements Serializable {
+
+    private Integer frmPgtCodigo;
+    private String frmPgtDescricao;
+
+    public Integer getFrmPgtCodigo() {
+        return frmPgtCodigo;
+    }
+
+    public void setFrmPgtCodigo(Integer frmPgtCodigo) {
+        this.frmPgtCodigo = frmPgtCodigo;
+    }
+
+    public String getFrmPgtDescricao() {
+        return frmPgtDescricao;
+    }
+
+    public void setFrmPgtDescricao(String frmPgtDescricao) {
+        this.frmPgtDescricao = frmPgtDescricao;
+    }
+
 }

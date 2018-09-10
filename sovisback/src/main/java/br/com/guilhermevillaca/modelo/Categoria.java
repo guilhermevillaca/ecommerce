@@ -1,10 +1,12 @@
 package br.com.guilhermevillaca.modelo;
 
+import java.io.Serializable;
+
 /**
  *
  * @author guilherme.villaca
  */
-public class Categoria {
+public class Categoria implements Serializable{
 
     private Integer ctgCodigo;
     private String ctgDescricao;

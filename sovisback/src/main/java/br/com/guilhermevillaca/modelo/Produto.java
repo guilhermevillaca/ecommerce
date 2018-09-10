@@ -1,10 +1,12 @@
 package br.com.guilhermevillaca.modelo;
 
+import java.io.Serializable;
+
 /**
  *
  * @author guilherme.villaca
  */
-public class Produto {
+public class Produto implements Serializable {
 
     private Integer prdCodigo;
     private String prdDescricao;
