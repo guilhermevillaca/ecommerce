@@ -25,3 +25,6 @@ hs_err_pid*
 sovisfront/node_modules
 
 
+/sovisback/target/
+/vraptor-blank-project/target/
+/sovisback_/target/

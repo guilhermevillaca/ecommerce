@@ -2,11 +2,11 @@ package br.com.guilhermevillaca.core;
 
 import br.com.caelum.vraptor.Result;
 import java.util.HashMap;
-import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
 import br.com.caelum.vraptor.view.Results;
+import javax.enterprise.context.ApplicationScoped;
 
-@RequestScoped
+@ApplicationScoped
 public class JsonResult {
 
     private HashMap<String, Object> map = null;

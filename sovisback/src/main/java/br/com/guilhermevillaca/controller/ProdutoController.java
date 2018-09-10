@@ -1,5 +1,6 @@
 package br.com.guilhermevillaca.controller;
 
+import br.com.caelum.vraptor.Controller;
 import br.com.caelum.vraptor.Path;
 import br.com.guilhermevillaca.core.AbstractController;
 import br.com.guilhermevillaca.core.InterfaceController;
@@ -11,8 +12,12 @@ import javax.inject.Inject;
  *
  * @author Guilherme Villaca <guilherme.villaca>
  */
+@Controller
 @Path("/produto/")
 public class ProdutoController extends AbstractController implements InterfaceController<Produto> {
+
+    public ProdutoController() {
+    }
 
     @Inject
     private ProdutoDao dao;
@@ -34,16 +39,16 @@ public class ProdutoController extends AbstractController implements InterfaceCo
     public void remove(Integer prdCodigo) {
         this.dao.delete(prdCodigo);
     }
-    
+
     @Path("pesquisa")
     @Override
-    public void pesquisa(){
+    public void pesquisa() {
         this.dao.list();
     }
-    
+
     @Path("pesquisa/{id}")
     @Override
-    public void pesquisa(Integer id){
+    public void pesquisa(Integer id) {
         this.dao.getById(id);
     }
 

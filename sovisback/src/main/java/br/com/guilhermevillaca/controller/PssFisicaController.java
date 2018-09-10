@@ -1,5 +1,6 @@
 package br.com.guilhermevillaca.controller;
 
+import br.com.caelum.vraptor.Controller;
 import br.com.guilhermevillaca.core.AbstractController;
 import br.com.guilhermevillaca.core.InterfaceController;
 import br.com.guilhermevillaca.modelo.PssFisica;
@@ -8,7 +9,11 @@ import br.com.guilhermevillaca.modelo.PssFisica;
  *
  * @author Guilherme Villaca <guilherme.villaca>
  */
-public class PssFisicaController extends AbstractController implements InterfaceController<PssFisica>{
+@Controller
+public class PssFisicaController extends AbstractController implements InterfaceController<PssFisica> {
+
+    public PssFisicaController() {
+    }
 
     @Override
     public void adiciona(PssFisica object) {
@@ -34,5 +39,5 @@ public class PssFisicaController extends AbstractController implements Interface
     public void pesquisa(Integer id) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-    
+
 }

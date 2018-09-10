@@ -1,5 +1,6 @@
 package br.com.guilhermevillaca.controller;
 
+import br.com.caelum.vraptor.Controller;
 import br.com.guilhermevillaca.core.AbstractController;
 import br.com.guilhermevillaca.core.InterfaceController;
 import br.com.guilhermevillaca.modelo.CarrinhoItens;
@@ -8,7 +9,11 @@ import br.com.guilhermevillaca.modelo.CarrinhoItens;
  *
  * @author Guilherme Villaca <guilherme.villaca>
  */
-public class CarrinhoItensController extends AbstractController implements InterfaceController<CarrinhoItens>{
+@Controller
+public class CarrinhoItensController extends AbstractController implements InterfaceController<CarrinhoItens> {
+
+    public CarrinhoItensController() {
+    }
 
     @Override
     public void adiciona(CarrinhoItens object) {
@@ -34,5 +39,5 @@ public class CarrinhoItensController extends AbstractController implements Inter
     public void pesquisa(Integer id) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-    
+
 }

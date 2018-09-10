@@ -1,16 +1,25 @@
 package br.com.guilhermevillaca.controller;
 
+import br.com.caelum.vraptor.Controller;
 import br.com.caelum.vraptor.Path;
 import br.com.guilhermevillaca.core.AbstractController;
 import br.com.guilhermevillaca.core.InterfaceController;
+import br.com.guilhermevillaca.dao.CategoriaDao;
 import br.com.guilhermevillaca.modelo.Categoria;
+import javax.inject.Inject;
 
 /**
  *
  * @author Guilherme Villaca <guilherme.villaca>
  */
+@Controller
 @Path("/categoria/")
-public class CategoriaController extends AbstractController implements InterfaceController<Categoria>{
+public class CategoriaController extends AbstractController implements InterfaceController<Categoria> {
+
+    @Inject
+    private CategoriaDao dao;
+    public CategoriaController() {
+    }
 
     @Path("adiciona")
     @Override
@@ -33,7 +42,7 @@ public class CategoriaController extends AbstractController implements Interface
     @Path("pesquisa")
     @Override
     public void pesquisa() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        this.dao.list();
     }
 
     @Path("pesquisa/{id}")
@@ -41,5 +50,5 @@ public class CategoriaController extends AbstractController implements Interface
     public void pesquisa(Integer id) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-    
+
 }

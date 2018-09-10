@@ -8,11 +8,13 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.enterprise.context.RequestScoped;
 
 /**
  *
  * @author guilherme.villaca
  */
+@RequestScoped
 public class ProdutoDao implements InterfaceDao<Produto> {
 
     @Override

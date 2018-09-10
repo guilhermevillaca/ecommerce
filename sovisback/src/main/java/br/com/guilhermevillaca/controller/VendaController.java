@@ -1,5 +1,6 @@
 package br.com.guilhermevillaca.controller;
 
+import br.com.caelum.vraptor.Controller;
 import br.com.guilhermevillaca.core.AbstractController;
 import br.com.guilhermevillaca.core.InterfaceController;
 import br.com.guilhermevillaca.modelo.Venda;
@@ -8,7 +9,11 @@ import br.com.guilhermevillaca.modelo.Venda;
  *
  * @author Guilherme Villaca <guilherme.villaca>
  */
-public class VendaController extends AbstractController implements InterfaceController<Venda>{
+@Controller
+public class VendaController extends AbstractController implements InterfaceController<Venda> {
+
+    public VendaController() {
+    }
 
     @Override
     public void adiciona(Venda object) {
@@ -34,5 +39,5 @@ public class VendaController extends AbstractController implements InterfaceCont
     public void pesquisa(Integer id) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-    
+
 }
