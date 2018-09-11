@@ -109,10 +109,28 @@ header p{
     margin: 0 auto;       
 }
 
-table{
+.table {
     width: 100%;
+    margin-bottom: 1rem;
+    background-color: transparent;
     text-align: left;
-}
+  }
+  
+  .table th,
+  .table td {
+    padding: 0.75rem;
+    vertical-align: top;
+    border-top: 1px solid #dee2e6;
+  }
+  
+  .table thead th {
+    vertical-align: bottom;
+    border-bottom: 2px solid #dee2e6;
+  }
+  
+  .table tbody + tbody {
+    border-top: 2px solid #dee2e6;
+  }
 
 /*.grid{    
     float: left;    
@@ -122,7 +140,7 @@ table{
 }*/
 [class*="grid-"] {
     float: left;
-    padding: 15px;    
+    padding: 15px 0;    
 }
 .grid-1{
     width: 8.32%;
@@ -164,7 +182,7 @@ table{
     display: block;
     margin-left: auto;
     margin-right: auto;
-    width: 100%;
+    width: 95%;
     margin-top: 5px;
 }
 .grid p{

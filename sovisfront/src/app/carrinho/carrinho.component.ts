@@ -10,8 +10,6 @@ export class CarrinhoComponent implements OnInit {
   constructor() { 
     let cart = JSON.parse(localStorage.getItem('cart'));
     this.carrinho = cart['items'];
-    console.log(cart['items']);
-    
   }
 
   ngOnInit() {
