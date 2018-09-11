@@ -39,7 +39,7 @@ public class CategoriaDao implements InterfaceDao<Categoria> {
         PreparedStatement stmt = null;
         try {
             List<Categoria> lista = new ArrayList<>();
-            stmt = con.prepareStatement("SELECT * FROM categoria");
+            stmt = con.prepareStatement("SELECT * FROM Categoria");
             ResultSet rs = stmt.executeQuery();
             while(rs.next()){
                 Categoria c = new Categoria();

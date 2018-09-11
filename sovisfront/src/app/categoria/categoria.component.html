@@ -1,6 +1,14 @@
-<p>
-  categoria works!
-</p>
-
-
-{{categorias}}
+<table>
+  <thead>
+    <tr>
+      <th>Categoria</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let categoria of categorias">
+      <td>{{categoria.ctgDescricao}}</td>
+      <td><a routerLink="produtos">Ver produtos</a></td>
+    </tr>
+  </tbody>
+</table>
