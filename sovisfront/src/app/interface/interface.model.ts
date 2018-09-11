@@ -1,4 +1,4 @@
-export interface IntefaceModel<T> {
+export interface InterfaceModel<T> {
     initJSON(json: any): T;
     toJSON();
 }

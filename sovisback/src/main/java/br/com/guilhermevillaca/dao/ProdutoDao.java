@@ -23,10 +23,10 @@ import javax.inject.Inject;
  */
 @RequestScoped
 public class ProdutoDao implements InterfaceDao<Produto> {
-    
+
     @Inject
     private JsonResult jsonResult;
-    
+
     @Override
     public void create(Produto object) {
         Connection con = ConnectionFactory.getConnection();
@@ -46,7 +46,7 @@ public class ProdutoDao implements InterfaceDao<Produto> {
             ConnectionFactory.closeConnection(con, stmt);
         }
     }
-    
+
     @Override
     public void delete(Integer id) {
         Connection con = ConnectionFactory.getConnection();
@@ -63,7 +63,7 @@ public class ProdutoDao implements InterfaceDao<Produto> {
             ConnectionFactory.closeConnection(con, stmt);
         }
     }
-    
+
     @Override
     public void update(Produto object) {
         Connection con = ConnectionFactory.getConnection();
@@ -84,12 +84,13 @@ public class ProdutoDao implements InterfaceDao<Produto> {
             ConnectionFactory.closeConnection(con, stmt);
         }
     }
-    
+
     @Override
     public void list() {
         List<Produto> lista = new ArrayList<>();
         Connection con = ConnectionFactory.getConnection();
         PreparedStatement stmt = null;
+        PreparedStatement stmt2 = null;
         try {
             stmt = con.prepareStatement("SELECT * FROM Produto");
             ResultSet rs = stmt.executeQuery();
@@ -99,25 +100,35 @@ public class ProdutoDao implements InterfaceDao<Produto> {
                 p.setPrdDescricao(rs.getString("Prd_Descricao"));
                 p.setPrdTitulo(rs.getString("Prd_Titulo"));
                 p.setPrdValor(rs.getDouble("Prd_Valor"));
-                p.setCategoria(rs.getObject("Ctg_Codigo", Categoria.class));
+                stmt2 = con.prepareStatement("SELECT * FROM Categoria where Ctg_Codigo=?");
+                stmt2.setInt(1, rs.getInt("Ctg_Codigo"));
+                ResultSet rs2 = stmt2.executeQuery();
+                while (rs2.next()) {
+                    Categoria c = new Categoria();
+                    c.setCtgCodigo(rs2.getInt("Ctg_Codigo"));
+                    c.setCtgDescricao(rs2.getString("Ctg_Descricao"));
+                    p.setCategoria(c);
+                }
                 lista.add(p);
             }
+            jsonResult.clear();
             jsonResult.from(lista);
         } catch (SQLException ex) {
             Logger.getLogger(ProdutoDao.class.getName()).log(Level.SEVERE, null, ex);
-            //result json com erro
+            jsonResult.message("Houve um erro ao listar os produtos: " + ex);
         } finally {
             ConnectionFactory.closeConnection(con, stmt);
         }
     }
-    
+
     @Override
     public void getById(Integer id) {
         Connection con = ConnectionFactory.getConnection();
         PreparedStatement stmt = null;
+        PreparedStatement stmt2 = null;
         try {
             stmt = con.prepareStatement("SELECT * FROM Produto WHERE Prd_Codigo=?");
-            stmt.setInt(0, id);
+            stmt.setInt(1, id);
             ResultSet rs = stmt.executeQuery();
             while (rs.next()) {
                 Produto p = new Produto();
@@ -125,15 +136,59 @@ public class ProdutoDao implements InterfaceDao<Produto> {
                 p.setPrdDescricao(rs.getString("Prd_Descricao"));
                 p.setPrdTitulo(rs.getString("Prd_Titulo"));
                 p.setPrdValor(rs.getDouble("Prd_Valor"));
-                p.setCategoria(rs.getObject("Ctg_Codigo", Categoria.class));
+                stmt2 = con.prepareStatement("SELECT * FROM Categoria where Ctg_Codigo=?");
+                stmt2.setInt(1, rs.getInt("Ctg_Codigo"));
+                ResultSet rs2 = stmt2.executeQuery();
+                while (rs2.next()) {
+                    Categoria c = new Categoria();
+                    c.setCtgCodigo(rs2.getInt("Ctg_Codigo"));
+                    c.setCtgDescricao(rs2.getString("Ctg_Descricao"));
+                    p.setCategoria(c);
+                }
                 jsonResult.from(p);
             }
         } catch (SQLException ex) {
             Logger.getLogger(ProdutoDao.class.getName()).log(Level.SEVERE, null, ex);
-            //result json com erro
+            jsonResult.message("Houve um erro ao buscar o produto: " + ex);
         } finally {
             ConnectionFactory.closeConnection(con, stmt);
         }
     }
-    
+
+    public void getByCat(Integer id) {        
+        List<Produto> lista = new ArrayList<>();
+        Connection con = ConnectionFactory.getConnection();
+        PreparedStatement stmt = null;
+        PreparedStatement stmt2 = null;
+        try {
+            stmt = con.prepareStatement("SELECT * FROM Produto WHERE Ctg_Codigo=?");
+            stmt.setInt(1, id);
+            ResultSet rs = stmt.executeQuery();
+            while (rs.next()) {
+                Produto p = new Produto();
+                p.setPrdCodigo(rs.getInt("Prd_Codigo"));
+                p.setPrdDescricao(rs.getString("Prd_Descricao"));
+                p.setPrdTitulo(rs.getString("Prd_Titulo"));
+                p.setPrdValor(rs.getDouble("Prd_Valor"));
+                stmt2 = con.prepareStatement("SELECT * FROM Categoria where Ctg_Codigo=?");
+                stmt2.setInt(1, rs.getInt("Ctg_Codigo"));
+                ResultSet rs2 = stmt2.executeQuery();
+                while (rs2.next()) {
+                    Categoria c = new Categoria();
+                    c.setCtgCodigo(rs2.getInt("Ctg_Codigo"));
+                    c.setCtgDescricao(rs2.getString("Ctg_Descricao"));
+                    p.setCategoria(c);
+                }
+                lista.add(p);
+            }
+            jsonResult.clear();
+            jsonResult.from(lista);
+        } catch (SQLException ex) {
+            Logger.getLogger(ProdutoDao.class.getName()).log(Level.SEVERE, null, ex);
+            jsonResult.message("Houve um erro ao pesquisar a categoria: " + ex);
+        } finally {
+            ConnectionFactory.closeConnection(con, stmt);
+        }
+    }
+
 }

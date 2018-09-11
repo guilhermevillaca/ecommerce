@@ -1,3 +1,32 @@
-<p>
-  produto works!
-</p>
+<div *ngIf="!showsingle">
+
+  <h2>Produtos</h2>
+
+  <div *ngFor="let produto of produtos">
+
+    <div class="grid grid-3">
+      <img src="http://placehold.jp/200x120.png">
+
+      <p>{{produto.prdTitulo}}</p>
+      <a routerLink="/produto/{{produto.prdCodigo}}" class="btn btn-primary">Detalhes do Produto</a>
+    </div>
+
+  </div>
+
+</div>
+
+<div *ngIf="showsingle">
+  <h3>Produto / {{produto.categoria?.ctgDescricao}} / {{produto.prdTitulo}}</h3>
+
+  <div class="grid grid-6">
+    <img src="http://placehold.jp/500x450.png" alt="">
+  </div>
+
+  <h6>Valor: {{produto.prdValor}}</h6>
+
+  <a (click)="addCarrinho(produto)" class="btn btn-primary">Adicionar ao carrinho</a>
+
+  <p>
+    {{produto.prdDescricao}}
+  </p>
+</div>

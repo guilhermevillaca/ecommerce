@@ -1,10 +1,29 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
-  title = 'sovisfront';
+export class AppComponent implements OnInit{  
+  quantidade: number = 0;
+  cart = {};
+  constructor(){
+    this.cart['items'] = [];
+    localStorage.setItem("cart", JSON.stringify(this.cart));
+  }
+
+  ngOnInit() {
+    this.atualizaQntCarrinho();
+  }
+
+  atualizaQntCarrinho(){
+    let cart = JSON.parse(localStorage.getItem('cart'));    
+    this.quantidade = 0;    
+    cart['items'].forEach(produto => {
+      this.quantidade += produto.quantidade;
+    });     
+    console.log(this.quantidade);    
+  }
+
 }

@@ -1,6 +1,6 @@
-import { IntefaceModel } from './../interface/interface.model';
+import { InterfaceModel } from './../interface/interface.model';
 import { Categoria } from './categoria.model';
-export class Produto implements IntefaceModel<Produto>{
+export class Produto implements InterfaceModel<Produto>{
 
     prdCodigo: number;
     prdDescricao: String;

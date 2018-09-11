@@ -46,10 +46,15 @@ public class ProdutoController extends AbstractController implements InterfaceCo
         this.dao.list();
     }
 
-    @Path("pesquisa/{id}")
+    @Path("pesquisaId/{id}")
     @Override
     public void pesquisa(Integer id) {
         this.dao.getById(id);
+    }
+    
+    @Path("pesquisaCat/{id}")    
+    public void pesquisaCat(Integer id) {
+        this.dao.getByCat(id);
     }
 
 }

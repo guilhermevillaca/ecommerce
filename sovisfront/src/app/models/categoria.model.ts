@@ -1,5 +1,5 @@
-import { IntefaceModel } from './../interface/interface.model';
-export class Categoria implements IntefaceModel<Categoria>{
+import { InterfaceModel } from './../interface/interface.model';
+export class Categoria implements InterfaceModel<Categoria>{
     ctgCodigo: number;
     ctgDescricao: String;
 

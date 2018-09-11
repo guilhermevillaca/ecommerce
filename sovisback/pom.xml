@@ -3,7 +3,7 @@
 
     <groupId>br.com.caelum</groupId>
     <artifactId>sovis</artifactId>
-    <version>4.3.0-beta-3-SNAPSHOT</version>
+    <version>1.0</version>
     <packaging>war</packaging>
 
     <description>E-commerce Sovis</description>
