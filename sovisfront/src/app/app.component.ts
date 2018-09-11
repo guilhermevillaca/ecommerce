@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit{  
-  quantidade: number = 0;
+  quantidade: number;
   cart = {};
   constructor(){
     this.cart['items'] = [];
@@ -18,12 +18,12 @@ export class AppComponent implements OnInit{
   }
 
   atualizaQntCarrinho(){
-    let cart = JSON.parse(localStorage.getItem('cart'));    
-    this.quantidade = 0;    
-    cart['items'].forEach(produto => {
-      this.quantidade += produto.quantidade;
-    });     
-    console.log(this.quantidade);    
+    let cart = JSON.parse(localStorage.getItem('cart'));           
+    let total = 0;
+    cart['items'].forEach(produto => {      
+      total += produto.quantidade;
+    });         
+    this.quantidade = total;    
   }
 
 }

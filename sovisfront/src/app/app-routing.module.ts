@@ -1,3 +1,4 @@
+import { CarrinhoComponent } from './carrinho/carrinho.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { CategoriaComponent } from './categoria/categoria.component';
@@ -11,6 +12,7 @@ const routes: Routes = [
   { path: 'produtos', component: ProdutoComponent},
   { path: 'produtoscat/:ctgCodigo', component: ProdutoComponent},
   { path: 'produto/:prdCodigo', component: ProdutoComponent},
+  { path: 'carrinho', component: CarrinhoComponent},
 ];
 
 @NgModule({

@@ -1,0 +1,17 @@
+<table>
+
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>Produto</th>
+      <th>Quantidade</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let item of carrinho">
+      <td>{{item.prdCodigo}}</td>
+      <td>{{item.prdTitulo}}</td>
+      <td>{{item.quantidade}}</td>
+    </tr>
+  </tbody>
+</table>

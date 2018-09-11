@@ -51,7 +51,7 @@ export class ProdutoComponent implements OnInit {
   addCarrinho(produto: Produto) {
     let item = {};
     item['prdCodigo'] = produto.prdCodigo;
-    item['prdDescricao'] = produto.prdDescricao
+    item['prdTitulo'] = produto.prdTitulo
     item['quantidade'] = 1;
     this.carrinhoPush(item);
   }
@@ -59,6 +59,7 @@ export class ProdutoComponent implements OnInit {
   /**
    * cria carrinho no localStorage. se já existir adiciona mais 1 item.
    * bug: ao dar refresh na página localStorage é limpo.
+   * ao finalizar a inserção do produto no localStorage é chamado uma função do appComponent para atualizar quantidade exibida na header
   **/
   carrinhoPush(item: any) {
     let cart = JSON.parse(localStorage.getItem('cart'));    
@@ -72,7 +73,7 @@ export class ProdutoComponent implements OnInit {
     if(add){
       cart['items'].push(item);
     }
-    this.app.atualizaQntCarrinho();
     localStorage.setItem('cart', JSON.stringify(cart));
+    this.app.atualizaQntCarrinho();
   }
 }
