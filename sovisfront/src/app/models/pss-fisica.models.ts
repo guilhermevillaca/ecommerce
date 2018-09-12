@@ -1,4 +1,4 @@
-import { InterfaceModel } from './../interface/interface.model';
+import { InterfaceModel } from '../interface/interface.model';
 export class PssFisica implements InterfaceModel<PssFisica> {
 
     pssFscCodigo: number;
@@ -19,7 +19,7 @@ export class PssFisica implements InterfaceModel<PssFisica> {
             'pssFisica.pssFscNome': this.pssFscNome,
             'pssFisica.pssFscCPF': this.pssFscCPF,
             'pssFisica.pssFscEmail': this.pssFscEmail
-        }
+        } 
     }
 
 

@@ -1,7 +1,7 @@
+import { PssFisica } from './../models/pss-fisica.models';
 import { UsuarioService } from './../usuario/usuario.service';
 import { PssFisicaService } from './../pssFisica/pss-fisica.service';
 import { Usuario } from './../models/usuario.models';
-import { PssFisica } from './../models/pssFisica.models';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -15,6 +15,7 @@ export class FinalizarComponent implements OnInit {
   usuario: Usuario;
   pssFisica: PssFisica;
   total: number;
+  pgtoSucesso: boolean = false;
   constructor(private _usuarioService: UsuarioService, private _pssFisicaService: PssFisicaService) {
     this.usuario = new Usuario();
     this.pssFisica = new PssFisica();
@@ -40,6 +41,13 @@ export class FinalizarComponent implements OnInit {
     this._pssFisicaService.adiciona(pssFisica).toPromise().then(res =>{
       console.log(res);
     });
+  }
+
+  pagamentoCartao(){
+    //add venda
+    //add itens venda
+    //enviar email
+    this.pgtoSucesso = true;
   }
 
 }

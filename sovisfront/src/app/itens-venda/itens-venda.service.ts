@@ -1,25 +1,26 @@
-import { PssFisica } from './../models/pss-fisica.models';
-import { AppConstants } from './../app.constants';
 import { HttpClient } from '@angular/common/http';
+import { AppConstants } from './../app.constants';
 import { InterfaceService } from './../interface/interface.service';
+import { ItensVenda } from './../models/itens-venda.models';
 import { Injectable } from '@angular/core';
 import * as $ from 'jquery/dist/jquery.min.js';
+
 @Injectable({
   providedIn: 'root'
 })
-export class PssFisicaService implements InterfaceService<PssFisica>{
+export class ItensVendaService implements InterfaceService<ItensVenda>{
   private urlAdiciona;
-  constructor(private _httpClient: HttpClient) { 
-    this.urlAdiciona = AppConstants.SERVERPATH + "pssFisica/adiciona";
+
+  constructor(private _httpClient: HttpClient) {
+    this.urlAdiciona = AppConstants.SERVERPATH + "itensvenda/adiciona";
   }
 
-  adiciona(item: PssFisica) {
-    console.log(item);    
+  adiciona(item: ItensVenda) {
     return this._httpClient.post(this.urlAdiciona, $.param(item.toJSON()), {
       headers: AppConstants.headers()
     });
   }
-  atualiza(item: PssFisica) {
+  atualiza(item: ItensVenda) {
     throw new Error("Method not implemented.");
   }
   remove(id: any) {
@@ -28,6 +29,5 @@ export class PssFisicaService implements InterfaceService<PssFisica>{
   pesquisa() {
     throw new Error("Method not implemented.");
   }
-
 
 }

@@ -33,13 +33,20 @@
 
 <div *ngIf="logado">
   <br>
-  Sua compra deu um total de {{total}}, como deseja pagar?
+  <p>Sua compra deu um total de {{total}}, como deseja pagar?</p>
 
   <br>
   <br>
   <span>Opções disponíveis</span>
   <br>
   <br>
-  <button class="btn btn-primary" (click)="pagamentoCartao">Cartão de crédito</button>
+  <button class="btn btn-primary" (click)="pagamentoCartao()">Cartão de crédito</button>
 
 </div>
+
+
+<div *ngIf="logado && psgtoSucesso">
+    <br>
+    <span>Pagamento realizado com sucesso!, Foi enviado um email para</span>
+  
+  </div>

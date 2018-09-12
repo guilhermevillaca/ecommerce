@@ -1,4 +1,4 @@
-import { PssFisica } from './pssFisica.models';
+import { PssFisica } from './pss-fisica.models';
 import { InterfaceModel } from './../interface/interface.model';
 export class Usuario implements InterfaceModel<Usuario> {
 
