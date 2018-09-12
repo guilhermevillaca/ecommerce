@@ -5,6 +5,7 @@
       <th>#</th>
       <th>Produto</th>
       <th>Quantidade</th>
+      <th>Valor</th>
     </tr>
   </thead>
   <tbody>
@@ -12,6 +13,16 @@
       <td>{{item.prdCodigo}}</td>
       <td>{{item.prdTitulo}}</td>
       <td>{{item.quantidade}}</td>
+      <td>{{item.quantidade * item.prdValor}}</td>
     </tr>
-  </tbody>
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>Total: {{total}}</td>
+    </tr>
+</tbody>
 </table>
+
+<a routerLink="/finalizar" class="btn btn-primary right">Finalizar Compra</a>
+

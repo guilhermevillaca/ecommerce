@@ -1,3 +1,4 @@
+import { FinalizarComponent } from './finalizar/finalizar.component';
 import { CarrinhoComponent } from './carrinho/carrinho.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
@@ -13,6 +14,7 @@ const routes: Routes = [
   { path: 'produtoscat/:ctgCodigo', component: ProdutoComponent},
   { path: 'produto/:prdCodigo', component: ProdutoComponent},
   { path: 'carrinho', component: CarrinhoComponent},
+  { path: 'finalizar', component: FinalizarComponent}
 ];
 
 @NgModule({

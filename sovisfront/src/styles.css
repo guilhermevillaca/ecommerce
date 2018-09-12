@@ -220,6 +220,9 @@ header p{
 .center {
     margin: auto;
 }
+.right {
+    float: right;
+}
 
 .shopping-cart{
     float: right;
@@ -249,4 +252,13 @@ header p{
     right: 10px;
     line-height: 25px !important;
     text-align: center;
+  }
+
+  input, textarea, select {
+    width : 95%;
+    margin: 10px 0;      
+    padding: 10px;    
+    -webkit-box-sizing: border-box; /* For legacy WebKit based browsers */
+       -moz-box-sizing: border-box; /* For legacy (Firefox <29) Gecko based browsers */
+            box-sizing: border-box;
   }

@@ -51,7 +51,8 @@ export class ProdutoComponent implements OnInit {
   addCarrinho(produto: Produto) {
     let item = {};
     item['prdCodigo'] = produto.prdCodigo;
-    item['prdTitulo'] = produto.prdTitulo
+    item['prdTitulo'] = produto.prdTitulo;
+    item['prdValor'] = produto.prdValor;
     item['quantidade'] = 1;
     this.carrinhoPush(item);
   }
@@ -69,10 +70,15 @@ export class ProdutoComponent implements OnInit {
         add = false;
         produto.quantidade += 1;
       }
-    })
+    });
     if(add){
       cart['items'].push(item);
     }
+    let total = 0;
+    cart['items'].forEach(produto => {
+      total += produto.quantidade * produto.prdValor;      
+    });
+    cart['total'] = total;
     localStorage.setItem('cart', JSON.stringify(cart));
     this.app.atualizaQntCarrinho();
   }

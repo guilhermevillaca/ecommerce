@@ -7,8 +7,9 @@ import { ProdutoComponent } from './produto/produto.component';
 import { HomeComponent } from './home/home.component';
 import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
-import { FormsModule } from "@angular/forms";
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { CarrinhoComponent } from './carrinho/carrinho.component';
+import { FinalizarComponent } from './finalizar/finalizar.component';
 
 @NgModule({
   declarations: [
@@ -16,14 +17,16 @@ import { CarrinhoComponent } from './carrinho/carrinho.component';
     CategoriaComponent,
     ProdutoComponent,
     HomeComponent,
-    CarrinhoComponent
+    CarrinhoComponent,
+    FinalizarComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [
     AppComponent

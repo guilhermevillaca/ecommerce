@@ -22,7 +22,7 @@ export class AppComponent implements OnInit{
     let total = 0;
     cart['items'].forEach(produto => {      
       total += produto.quantidade;
-    });         
+    });             
     this.quantidade = total;    
   }
 

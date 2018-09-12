@@ -45,4 +45,9 @@ public class PssFisica implements Serializable {
         this.pssFscEmail = pssFscEmail;
     }
 
+    @Override
+    public String toString() {
+        return "PssFisica{" + "pssFscCodigo=" + pssFscCodigo + ", pssFscNome=" + pssFscNome + ", pssFscCPF=" + pssFscCPF + ", pssFscEmail=" + pssFscEmail + '}';
+    }
+
 }

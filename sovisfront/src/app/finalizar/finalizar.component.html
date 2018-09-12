@@ -1,0 +1,45 @@
+<h6>Finalizando a compra</h6>
+
+<div *ngIf="!logado">
+  <div class="grid grid-6">
+    <h6>Já tenho conta</h6>
+    
+    <form #f="ngForm">
+      
+      <input type="text" placeholder="Usuário" [(ngModel)]="usuario.usrLogin" name="usrLogin">
+      <input type="password" placeholder="Senha" [(ngModel)]="usuario.usrSenha" name="usrSenha">
+      <button class="btn btn-primary right" style="margin-right: 25px;" (click)="entrar(usuario)">Entrar</button>
+      
+    </form>
+    
+  </div>
+  
+  <div class="grid grid-6">
+    <h6>Criar nova conta</h6>
+    
+    <form #f="ngForm">
+      
+      <input type="text" placeholder="Nome" [(ngModel)]="pssFisica.pssFscNome" name="pssFscNome">
+      <input type="text" placeholder="CPF" [(ngModel)]="pssFisica.pssFscCPF" name="pssFscCPF">
+      <input type="text" placeholder="E-mail" [(ngModel)]="pssFisica.pssFscEmail" name="pssFscEmail">
+      <button class="btn btn-primary right" style="margin-right: 25px;" (click)="cadastrar(pssFisica)">Cadastrar</button>
+      
+    </form>
+    
+  </div>
+  
+  <span>{{msg}}</span>
+</div>
+
+<div *ngIf="logado">
+  <br>
+  Sua compra deu um total de {{total}}, como deseja pagar?
+
+  <br>
+  <br>
+  <span>Opções disponíveis</span>
+  <br>
+  <br>
+  <button class="btn btn-primary" (click)="pagamentoCartao">Cartão de crédito</button>
+
+</div>

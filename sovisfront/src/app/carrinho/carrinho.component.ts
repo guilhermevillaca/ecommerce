@@ -6,10 +6,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./carrinho.component.css']
 })
 export class CarrinhoComponent implements OnInit {
-  carrinho: [];
+  carrinho = [];
+  total: number;
   constructor() { 
     let cart = JSON.parse(localStorage.getItem('cart'));
     this.carrinho = cart['items'];
+    this.total = cart['total'];
   }
 
   ngOnInit() {
