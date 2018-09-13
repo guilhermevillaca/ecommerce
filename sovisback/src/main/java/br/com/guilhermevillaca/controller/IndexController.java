@@ -1,4 +1,5 @@
 package br.com.guilhermevillaca.controller;
+
 import javax.inject.Inject;
 
 import br.com.caelum.vraptor.Controller;
@@ -9,26 +10,25 @@ import br.com.guilhermevillaca.core.JsonResult;
 @Controller
 public class IndexController {
 
-        @Inject 
-        private JsonResult jsonResult;
-        
-	private final Result result;
+    @Inject
+    private JsonResult jsonResult;
 
-	/**
-	 * @deprecated CDI eyes only
-	 */
-	protected IndexController() {
-		this(null);
-	}
-	
-	@Inject
-	public IndexController(Result result) {
-		this.result = result;
-	}
+    private final Result result;
 
-	@Path("/")
-	public void index() {
-		//result.include("variable", "VRaptor!");
-                jsonResult.message("Olá mundo");
-	}
+    /**
+     * @deprecated CDI eyes only
+     */
+    protected IndexController() {
+        this(null);
+    }
+
+    @Inject
+    public IndexController(Result result) {
+        this.result = result;
+    }
+
+    @Path("/")
+    public void index() {
+        result.forwardTo("/app/");
+    }
 }

@@ -1,3 +1,4 @@
+import { AppConstants } from './app.constants';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -8,9 +9,11 @@ import { Component, OnInit } from '@angular/core';
 export class AppComponent implements OnInit{  
   quantidade: number;
   cart = {};
+  img: string;
   constructor(){
     this.cart['items'] = [];
     localStorage.setItem("cart", JSON.stringify(this.cart));
+    this.img = AppConstants.IMGCART;
   }
 
   ngOnInit() {
