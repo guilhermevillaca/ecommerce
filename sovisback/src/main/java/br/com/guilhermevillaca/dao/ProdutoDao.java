@@ -33,10 +33,10 @@ public class ProdutoDao implements InterfaceDao<Produto> {
         PreparedStatement stmt = null;
         try {
             stmt = con.prepareStatement("INSERT INTO produto(Prd_Descricao, Prd_Titulo, Ctg_Codigo, Prd_Valor) VALUES (?,?,?,?)");
-            stmt.setString(0, object.getPrdDescricao());
-            stmt.setString(1, object.getPrdTitulo());
-            stmt.setInt(2, object.getCategoria().getCtgCodigo());
-            stmt.setDouble(3, object.getPrdValor());
+            stmt.setString(1, object.getPrdDescricao());
+            stmt.setString(2, object.getPrdTitulo());
+            stmt.setInt(3, object.getCategoria().getCtgCodigo());
+            stmt.setDouble(4, object.getPrdValor());
             stmt.executeUpdate();
             jsonResult.message("Salvo com sucesso", Operacao.CREATE);
         } catch (SQLException ex) {

@@ -1,26 +1,25 @@
 import { HttpClient } from '@angular/common/http';
 import { AppConstants } from './../app.constants';
+import { MensagemEmail } from './../models/mensagem-email.model';
 import { InterfaceService } from './../interface/interface.service';
-import { ItensVenda } from './../models/itens-venda.models';
 import { Injectable } from '@angular/core';
 import * as $ from 'jquery/dist/jquery.min.js';
 
 @Injectable({
   providedIn: 'root'
 })
-export class ItensVendaService implements InterfaceService<ItensVenda>{
+export class MensagemEmailService implements InterfaceService<MensagemEmail>{
   private urlAdiciona;
-
-  constructor(private _httpClient: HttpClient) {
-    this.urlAdiciona = AppConstants.SERVERPATH + "itensvenda/adiciona";
+  constructor(private _httpClient: HttpClient) { 
+    this.urlAdiciona = AppConstants.SERVERPATH + "mensagememail/adiciona";
   }
 
-  adiciona(itensVenda: ItensVenda) {
-    return this._httpClient.post(this.urlAdiciona, $.param(itensVenda.toJSON()), {
+  adiciona(mensagemEmail: MensagemEmail) {
+    return this._httpClient.post(this.urlAdiciona, $.param(mensagemEmail.toJSON()), {
       headers: AppConstants.headers()
     });
   }
-  atualiza(item: ItensVenda) {
+  atualiza(item: any) {
     throw new Error("Method not implemented.");
   }
   remove(id: any) {
@@ -29,5 +28,7 @@ export class ItensVendaService implements InterfaceService<ItensVenda>{
   pesquisa() {
     throw new Error("Method not implemented.");
   }
+
+
 
 }

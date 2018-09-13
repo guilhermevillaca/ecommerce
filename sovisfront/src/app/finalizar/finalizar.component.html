@@ -1,37 +1,37 @@
 <h6>Finalizando a compra</h6>
 
-<div *ngIf="!logado">
+<div *ngIf="!logado && !pgtoSucesso">
   <div class="grid grid-6">
     <h6>Já tenho conta</h6>
-    
+
     <form #f="ngForm">
-      
+
       <input type="text" placeholder="Usuário" [(ngModel)]="usuario.usrLogin" name="usrLogin">
       <input type="password" placeholder="Senha" [(ngModel)]="usuario.usrSenha" name="usrSenha">
       <button class="btn btn-primary right" style="margin-right: 25px;" (click)="entrar(usuario)">Entrar</button>
-      
+
     </form>
-    
+
   </div>
-  
+
   <div class="grid grid-6">
     <h6>Criar nova conta</h6>
-    
+
     <form #f="ngForm">
-      
+
       <input type="text" placeholder="Nome" [(ngModel)]="pssFisica.pssFscNome" name="pssFscNome">
       <input type="text" placeholder="CPF" [(ngModel)]="pssFisica.pssFscCPF" name="pssFscCPF">
       <input type="text" placeholder="E-mail" [(ngModel)]="pssFisica.pssFscEmail" name="pssFscEmail">
       <button class="btn btn-primary right" style="margin-right: 25px;" (click)="cadastrar(pssFisica)">Cadastrar</button>
-      
+
     </form>
-    
+
   </div>
-  
+
   <span>{{msg}}</span>
 </div>
 
-<div *ngIf="logado">
+<div *ngIf="logado && !pgtoSucesso">
   <br>
   <p>Sua compra deu um total de {{total}}, como deseja pagar?</p>
 
@@ -45,8 +45,10 @@
 </div>
 
 
-<div *ngIf="logado && psgtoSucesso">
-    <br>
-    <span>Pagamento realizado com sucesso!, Foi enviado um email para</span>
-  
-  </div>
+<div *ngIf="logado && pgtoSucesso">
+  <br>
+  <span>{{msg}}</span>
+  <br>
+  <a routerLink="/home" class="btn btn-primary">Voltar para página inicial</a>
+
+</div>

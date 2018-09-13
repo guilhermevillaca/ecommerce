@@ -14,8 +14,8 @@ export class VendaService implements InterfaceService<Venda>{
     this.urlAdiciona = AppConstants.SERVERPATH + "venda/adiciona";
   }
 
-  adiciona(item: Venda) {
-    return this._httpClient.post(this.urlAdiciona, $.param(item.toJSON()), {
+  adiciona(venda: Venda) {
+    return this._httpClient.post(this.urlAdiciona, $.param(venda.toJSON()), {
       headers: AppConstants.headers()
     });
   }

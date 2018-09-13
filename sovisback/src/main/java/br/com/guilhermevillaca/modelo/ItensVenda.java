@@ -54,4 +54,9 @@ public class ItensVenda implements Serializable {
         this.itnVndTotal = itnVndTotal;
     }
 
+    @Override
+    public String toString() {
+        return "ItensVenda{" + "itnVndCodigo=" + itnVndCodigo + ", venda=" + venda + ", produto=" + produto + ", itnVndQuantidade=" + itnVndQuantidade + ", itnVndTotal=" + itnVndTotal + '}';
+    }
+
 }
