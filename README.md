@@ -1,5 +1,5 @@
-# ecommerce_sovis
-E-Commerce Sovis
+# ecommerce
+E-Commerce 
 
 Projeto front desenvolvido em angular 6.
 Para iniciar é preciso primeiro instalar as dependências com o comando npm install
